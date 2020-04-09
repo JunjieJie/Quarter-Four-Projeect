@@ -70,26 +70,22 @@ function draw() {
   }
   //move player down on the W key and up arrow key
   if (keyIsDown(87) && player.y - 0.1 * h > 0) {
-    player.y -= player.speed;
+    player.y -= player.ySpeed;
     //distance needed to go to get point) {}
     document.getElementById("points").innerHTML++; //why just keep it "++"
   }
   //move player down on the S key and down arrow key
   if (keyIsDown(83) && player.y + 0.1 * h < h) {
-    player.y += player.speed;
+    player.y += player.ySpeed;
     document.getElementById("points").innerHTML--;
   }
   //move player left on the A key and left arrow key
-  if (keyIsDown(65) && player.x - 0.1 * h > 0) {
-    player.x -= player.speed;
+  if (keyIsDown(65) && player.x - 0.1 * w > 0) {
+    player.x -= player.xSpeed;
   }
   //move player right on the D key and the right arrow key
-  if (keyIsDown(68) && player.x < w - 0.1 * h) {
-    player.x += player.speed;
-  }
-  if (testSafeZone.y == testRoad.y) {
-    draw();
-    console.log("AKSD");
+  if (keyIsDown(68) && player.x < w - 0.1 * w) {
+    player.x += player.xSpeed;
   }
 }
 
