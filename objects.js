@@ -5,11 +5,13 @@ function Vehicle(y) {
   //  Vehicle Properties
   this.dimensions = [];
   this.height = 0.1 * h;
-  this.width = 0.2 * h;
+  this.width = 0.2 * w;
   this.x = w + this.width;
   this.y = y;
   this.speed = 10; //I still don't understand how this speeds gonna work - JJ
   this.show = function () {
+    this.height = 0.1 * h;
+    this.width = 0.2 * w;
     image(img, this.x, this.y, this.width, this.height);
   };
   this.update = function () {
