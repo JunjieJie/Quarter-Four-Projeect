@@ -24,9 +24,9 @@ function Vehicle(y) {
   };
 }
 
-function Road() {
-  this.x = 0;
-  this.y = Math.floor(Math.random() * 10) * 0.1 * h;
+function Road(x, y) {
+  this.x = x;
+  this.y = y;
   this.height = 0.1 * h;
   this.width = w;
   this.vehicles = [new Vehicle(this.y)];
@@ -52,9 +52,9 @@ function Road() {
   };
 }
 
-function Safezone() {
-  this.x = 0;
-  this.y = Math.floor(Math.random() * 10) * 0.1 * h;
+function Safezone(x, y) {
+  this.x = x;
+  this.y = y;
   this.height = 0.1 * h;
   this.width = w;
   this.show = function () {
