@@ -8,7 +8,7 @@ function Vehicle(parentY) {
   this.direction = Math.round(Math.random());
   this.x = this.direction === 0 ? 0 - this.width : w + this.width;
   this.y = parentY;
-  this.randSpeed = Math.floor(Math.random() * 35);
+  this.randSpeed = Math.floor(Math.random() * 20);
   this.speed = this.randSpeed < 10 ? 10 : this.randSpeed;
   this.isVisible = function () {
     if (this.y < 0 || this.y >= h) {
@@ -24,7 +24,7 @@ function Vehicle(parentY) {
         if (this.x - this.width > w) {
           //checks if it goes off the screen and resets it if it does
           this.x = 0 - this.width;
-          this.randSpeed = Math.floor(Math.random() * 50);
+          this.randSpeed = Math.floor(Math.random() * 20);
           this.speed = this.randSpeed < 10 ? 10 : this.randSpeed;
         }
       } else {
@@ -71,7 +71,6 @@ function Road(x, y) {
   this.vehicles = [new Vehicle(this.y)];
   this.show = function () {
     if (this.isVisible) {
-      this.height = 0.1 * h;
       this.width = w;
       fill("black");
       rect(this.x, this.y, this.width, this.height);
@@ -85,7 +84,7 @@ function Road(x, y) {
       rect(this.x, this.y, this.width, this.height);
     }
     if (hit) {
-      window.alert("game over");
+      endGame();
     }
   };
 }
@@ -104,7 +103,6 @@ function Safezone(x, y) {
   };
   this.show = function () {
     if (this.isVisible) {
-      this.height = 0.1 * h;
       this.width = w;
       fill("green");
       rect(this.x, this.y, this.width, this.height);
@@ -125,18 +123,13 @@ function Player() {
   this.width = 0.1 * w;
   this.xSpeed = 0.1 * w;
   this.ySpeed = 0.1 * h;
-  this.upPressed = 0;
-  this.downPressed = 0;
   this.moveUp = function () {
-    this.upPressed++;
     for (let i = 0; i < course.length; i++) {
       course[i].y += 0.1 * h;
     }
     console.log(this.upPressed);
   };
   this.moveDown = function () {
-    this.downPressed++;
-    console.log(this.downPressed);
     player.y += player.ySpeed / 2048;
     for (let i = 0; i < course.length; i++) {
       course[i].y -= 0.1 * h;

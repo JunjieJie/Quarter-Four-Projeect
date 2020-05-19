@@ -1,4 +1,19 @@
+function fetchPrevScore() {
+  return Number(localStorage.getItem("prevScore"));
+}
+
+function showPrevScore(prevScore) {
+  let bruh = document.querySelector(".container");
+  let bruhItem = document.createElement("h2");
+  bruhItem.appendChild(document.createTextNode(`Previous Score: ${prevScore}`));
+  bruh.appendChild(bruhItem);
+}
+
 function initialize(tracks) {
+  document.getElementById("points").innerHTML = `Score: 0`;
+  if (localStorage.getItem("prevScore")) {
+    showPrevScore(fetchPrevScore());
+  }
   player = new Player();
   for (let i = 0; i < tracks; i++) {
     if (isInitialized) {

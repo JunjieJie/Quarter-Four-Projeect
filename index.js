@@ -15,6 +15,7 @@ function setup() {
   course = [];
   vehicles = [];
   canvas = createCanvas(w, h);
+  score = 0;
   initialize(1000);
 }
 
@@ -31,7 +32,8 @@ function keyPressed() {
   if (keyCode == 87 && player.y - 0.1 * h > 0) {
     player.moveUp();
     //distance needed to go to get point) {}
-    document.getElementById("points").innerHTML++; //why just keep it "++"
+    score++;
+    document.getElementById("points").innerHTML = `Score: ${score}`; //why just keep it "++"
   }
   //move player down on the S key and down arrow key
   if (keyCode == 83 && player.y + 0.1 * h < h) {
